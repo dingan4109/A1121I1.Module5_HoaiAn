@@ -18,7 +18,7 @@ facilities: Facility[] = [
     poolArea: 300,
     numberOfFloors:0,
     rentType: 1,
-    facilityType: 1},
+    serviceType: 1},
   {facilityId : 2,
     facilityName: 'House',
     area: 500,
@@ -29,7 +29,7 @@ facilities: Facility[] = [
     poolArea: 200,
     numberOfFloors:0,
     rentType: 1,
-    facilityType: 1},
+    serviceType: 1},
   {facilityId : 2,
     facilityName: 'Room',
     area: 300,
@@ -39,7 +39,7 @@ facilities: Facility[] = [
     description: 'des',
     numberOfFloors:0,
     rentType: 1,
-    facilityType: 1}
+    serviceType: 1}
 ]
   constructor() { }
 

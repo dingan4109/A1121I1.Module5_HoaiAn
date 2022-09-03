@@ -1,5 +1,7 @@
+// @ts-ignore
 import { Component, OnInit } from '@angular/core';
 
+// @ts-ignore
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
