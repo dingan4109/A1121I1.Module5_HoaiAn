@@ -7,9 +7,13 @@
         <div class="text-warning"
              *ngIf="accountForm.hasError('',['email']) && accountForm.get('email')?.touched">
           Invalid
-
+<!--          <p *ngIf="accountForm.get('email').hasError('required')">Reqired</p>-->
+<!--          <p *ngIf="accountForm.get('email').hasError('emailError')">Must contains 'an'</p>-->
+<!--          <p *ngIf="accountForm.get('email').hasError('email')">Format</p>-->
         </div>
-
+        <code>
+<!--          {{accountForm.get('email').errors | json}}-->
+        </code>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div formGroupName="password">

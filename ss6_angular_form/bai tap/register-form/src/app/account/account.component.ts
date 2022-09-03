@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {comparePassword} from './account.validator';
+import {checkEmail, comparePassword} from './account.validator';
 
 @Component({
   selector: 'app-account',
@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.accountForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email, checkEmail]),
       password: new FormGroup({
         pass: new FormControl(),
         confirmPass: new FormControl()
@@ -25,7 +25,7 @@ export class AccountComponent implements OnInit {
       country: new FormControl('', [Validators.required]),
       age: new FormControl('', [Validators.min(19)]),
       gender: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.pattern('/^\\+84\\d{9,10}$/')])
+      phone: new FormControl('', [Validators.pattern('^\\+84\\d{9,10}$')])
     });
   }
 
