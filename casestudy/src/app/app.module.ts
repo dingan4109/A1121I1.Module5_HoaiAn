@@ -13,6 +13,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { ContractListComponent } from './contract-list/contract-list.component';
 import { CustomerUseFacilityComponent } from './customer-use-facility/customer-use-facility.component';
+import {HttpClient} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CustomerUseFacilityComponent } from './customer-use-facility/customer-u
     BrowserModule,
     AppRoutingModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
