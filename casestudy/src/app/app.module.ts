@@ -13,7 +13,8 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { ContractListComponent } from './contract-list/contract-list.component';
 import { CustomerUseFacilityComponent } from './customer-use-facility/customer-use-facility.component';
-import {HttpClient} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
+import { ContractCreateComponent } from './contract-create/contract-create.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +28,13 @@ import {HttpClient} from "@angular/common/http";
     EditCustomerComponent,
     CreateCustomerComponent,
     ContractListComponent,
-    CustomerUseFacilityComponent
+    CustomerUseFacilityComponent,
+    ContractCreateComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
 
   providers: [],
