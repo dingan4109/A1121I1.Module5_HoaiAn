@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "id": 5,
+      "name": "IPhone 11 Pro",
+      "price": 1895000,
+      "description": "Like new"
+    },
+    {
+      "id": 23,
+      "name": "New product",
+      "price": 1000,
+      "description": "des"
+    },
+    {
+      "id": 24,
+      "name": "abc",
+      "price": 100,
+      "description": "check edit",
+      "category": {
+        "id": "6"
+      }
+    },
+    {
+      "name": "sp mới",
+      "price": 1000,
+      "description": "anbc",
+      "id": 25
+    },
+    {
+      "name": "1",
+      "price": 1,
+      "description": "1",
+      "category": {
+        "id": 3
+      },
+      "id": 26
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Phone"
+    },
+    {
+      "id": 3,
+      "name": "ABC"
+    },
+    {
+      "id": 4,
+      "name": "Other"
+    },
+    {
+      "name": "new cate",
+      "id": 6
+    }
+  ]
+}
