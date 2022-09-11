@@ -1,6 +1,25 @@
 <h1>Danh sách sản phẩm</h1>
-<a routerLink="/product/create" class="btn btn-outline-dark">Thêm sản phẩm mới</a>
+<div class="row">
+  <div class="col-md-3">
+    <a routerLink="/product/create" class="btn btn-outline-dark">Thêm sản phẩm mới</a>
+  </div>
+  <div class="col-md-9">
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+      Tên:
+      <input type="text" formControlName="name">
+      Gia:
+      <input type="text" formControlName="price">
+      Danh mục:
+      <select formControlName="categoryId">
+        <option [value]="">Chọn</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+      </select>
+      <button class="btn btn-outline-dark">Tìm kiếm</button>
+    </form>
+  </div>
+</div>
 <br><br>
+
 <div>
 <table class="table table-striped">
   <tr>
@@ -17,7 +36,8 @@
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
-    <td>{{product.category}}</td>
+    <td *ngIf="product.category">{{product.category.name}}</td>
+    <td *ngIf="!product.category"></td>
     <td><a class="btn btn-outline-dark" [routerLink]="['/product/edit', product.id]">Sửa</a></td>
     <td><a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#delModal" (click)="delModal(product)">Xóa</a></td>
   </tr>
@@ -59,4 +79,5 @@
     </div>
   </div>
 </div>
+<!--end modal-->
 <pagination-controls (pageChange)="pageChanged($event)" previousLabel="Trang trước" nextLabel="Trang sau"></pagination-controls>

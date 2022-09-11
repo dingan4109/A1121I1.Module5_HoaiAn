@@ -26,4 +26,7 @@ API_URL = "http://localhost:3000/products";
   deleteProduct(id): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/${id}`)
   }
+  search(name: string, price: number, categoryId: number): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.API_URL}?name_like=${name}&price=${price}&product.category.id=${categoryId}`);
+  }
 }

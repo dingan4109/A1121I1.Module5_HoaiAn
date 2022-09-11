@@ -18,7 +18,7 @@
       <td>
         <select formControlName="category">
           <option selected [value]="null">Chọn</option>
-          <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+          <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
         </select>
       </td>
     </tr>

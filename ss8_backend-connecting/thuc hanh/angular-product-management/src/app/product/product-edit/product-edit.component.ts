@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Product} from "../../model/product";
 import {ProductService} from "../../service/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -24,7 +24,7 @@ export class ProductEditComponent implements OnInit {
       name: '',
       price: '',
       description: '',
-      category: ''
+      categoryId: ''
     })
   }
 
@@ -32,7 +32,8 @@ export class ProductEditComponent implements OnInit {
     this.id = parseInt(this.activatedRoute.snapshot.params['id']);
     this.productService.findById(this.id).subscribe(product => {
       this.product = product;
-      this.setValue();}
+      this.setValue();
+    }
     );
     this.getAllCategory();
   }
@@ -41,10 +42,9 @@ export class ProductEditComponent implements OnInit {
 
   editProduct() {
     let updatedProduct = this.editForm.value;
-    updatedProduct.category = {
-      id: updatedProduct.category
-    }
-    this.productService.updateById(this.id, updatedProduct).subscribe(() => {},() => {}, () => this.router.navigate(['/product/list']));
+    this.categoryService.findCategoryById(updatedProduct.categoryId).subscribe(category => {
+      updatedProduct.category =  category;
+      this.productService.updateById(this.id, updatedProduct).subscribe(() => {},() => {}, () => this.router.navigate(['/product/list']));});
 
   }
   setValue() {
@@ -52,10 +52,11 @@ export class ProductEditComponent implements OnInit {
     this.editForm.controls['name'].setValue(this.product.name);
     this.editForm.controls['price'].setValue(this.product.price);
     this.editForm.controls['description'].setValue(this.product.description);
-    this.editForm.controls['category'].setValue(this.product.category.id);
+    this.editForm.controls['categoryId'].setValue(this.product.category.id);
   }
 
   getAllCategory(){
     this.categoryService.getAllCategory().subscribe(categories => this.categories = categories);
   }
+
 }

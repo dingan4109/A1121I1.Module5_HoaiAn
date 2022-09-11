@@ -20,8 +20,8 @@
     <tr>
       <td>Danh mục</td>
       <td>
-        <select formControlName="category">
-          <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+        <select formControlName="categoryId">
+          <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
         </select>
       </td>
     </tr>
